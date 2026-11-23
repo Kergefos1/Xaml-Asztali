@@ -8,10 +8,11 @@
         Title="Nappali" Height="450" Width="800" x:Name="mainWindow">
     <StackPanel Margin="20">
         <TextBlock x:Name="deviceNameText" Text="Termosztát"></TextBlock>
-        <TextBox x:Name="roomNameBox"></TextBox>
+        <TextBox x:Name="roomNameBox" Text="{Binding ElementName=mainWindow, Path=Title, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Slider x:Name="temperatureSlider" Minimum="16" Maximum="30" Value="21" TickFrequency="1" IsSnapToTickEnabled="True"></Slider>
-        <TextBlock x:Name="temperatureText"></TextBlock>
-        <TextBox x:Name="temperatureBox"></TextBox>
+        <TextBlock x:Name="temperatureText" Text="{Binding ElementName=temperatureSlider, Path=Value, StringFormat={}{0}°C}"></TextBlock>
+        <TextBox x:Name="temperatureBox" Text="{Binding ElementName=temperatureSlider, Path=Value}"></TextBox>
         <CheckBox x:Name="manualModeCheckBox" Content="Kézi"></CheckBox>
     </StackPanel>
+    
 </Window>
